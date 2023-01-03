@@ -1,0 +1,41 @@
+.container {
+  width: 100%;
+  border-top: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 32px;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-weight: bold !important;
+    font-size: 40px !important;
+  }
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.sitemap {
+  font-weight: bold !important;
+  font-size: 32px !important;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  color: #000 !important;
+}
