@@ -1,3 +1,5 @@
+@use 'src/assets/styles/breakpoints';
+
 .container {
   width: 100%;
   position: relative;
@@ -5,12 +7,22 @@
   flex-direction: column;
   gap: 48px;
   padding: 32px 16px;
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    padding: 64px;
+    gap: 96px;
+  }
 }
 
 h2 {
   font-size: 22px !important;
   font-weight: bold !important;
   z-index: 999;
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    text-align: center !important;
+    font-size: 32px !important;
+  }
 }
 
 .button {
@@ -38,6 +50,14 @@ h2 {
   flex-direction: column;
   gap: 64px;
   z-index: 999;
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: flex-start;
+    max-width: 1300px;
+    align-self: center;
+  }
 }
 
 .partnerItem {
@@ -59,6 +79,17 @@ h2 {
 
   img {
     width: 100%;
+  }
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    h3, h4 {
+      text-align: left !important;
+      width: 100% !important;
+    }
+
+    img {
+      border-radius: 16px;
+    }
   }
 }
 

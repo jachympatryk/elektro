@@ -1,3 +1,5 @@
+@use 'src/assets/styles/breakpoints';
+
 .container {
   width: 100%;
   display: grid;
@@ -10,6 +12,13 @@
   background-repeat: no-repeat;
   height: calc(100vh - 80px);
   padding: 16px 16px 0 16px;
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    grid-template-columns: 0.55fr 0.45fr;
+    grid-template-rows: 1fr;
+    padding: 0;
+    background-attachment: fixed;
+  }
 }
 
 .header {
@@ -36,7 +45,28 @@
     font-size: 20px !important;
     font-weight: 600 !important;
     line-height: 28px !important;
+  }
 
+  @media screen and (min-width: breakpoints.$media_l) {
+    gap: 32px;
+
+    h1 {
+      font-size: 42px !important;
+    }
+
+    h2 {
+      font-size: 24px !important;
+    }
+  }
+
+  @media screen and (min-width: breakpoints.$media_hd) {
+    h1 {
+      font-size: 62px !important;
+    }
+
+    h2 {
+      font-size: 38px !important;
+    }
   }
 }
 
@@ -59,5 +89,30 @@
     color: #fff !important;
     line-height: 32px !important;
     font-size: 14px !important;
+  }
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    gap: 48px;
+    padding: 32px;
+
+    span {
+      font-size: 26px !important;
+    }
+
+    h3 {
+      line-height: 42px !important;
+      font-size: 20px !important;
+    }
+  }
+
+
+  @media screen and (min-width: breakpoints.$media_hd) {
+    span {
+      font-size: 32px !important;
+    }
+
+    h3 {
+      font-size: 22px !important;
+    }
   }
 }

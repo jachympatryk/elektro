@@ -1,17 +1,30 @@
 import React from "react";
 import { Typography } from "@mui/material";
 
+import { useWindowSize } from "hooks";
+
 import heroImage from "assets/images/hero-image.webp";
+import heroImageDesktop from "assets/images/hero-image-desktop.jpg";
 
 import styles from "./hero.module.scss";
 
 export const Hero = () => {
+  const { width } = useWindowSize();
+
+  const isDesktop = width > 1024;
+
+  const backgroundImage = isDesktop ? heroImageDesktop : heroImage;
+
   return (
-    <div style={{ backgroundImage: `url(${heroImage})` }} className={styles.container}>
+    <div style={{ backgroundImage: `url(${backgroundImage})` }} className={styles.container}>
       <div className={styles.header}>
-        <Typography variant="h1">
-          We dont sell <br /> installations
-        </Typography>
+        {!isDesktop && (
+          <Typography variant="h1">
+            We dont sell <br /> installations
+          </Typography>
+        )}
+
+        {isDesktop && <Typography variant="h1">We dont sell installations</Typography>}
         <Typography variant="h2">We assembly PV system for our partners</Typography>
       </div>
 
