@@ -13,3 +13,24 @@ export const LOGIN_PAGE: RouteConstant = {
   auth: false,
   showNavigation: false,
 };
+
+export const PORTFOLIO_PAGE: RouteConstant = {
+  path: "/portfolio",
+  name: "Portfolio",
+  auth: false,
+  showNavigation: true,
+};
+
+export const PARTNERSHIP_PAGE: RouteConstant = {
+  path: "/partnership",
+  name: "Partnership",
+  auth: false,
+  showNavigation: true,
+};
+
+export const CONTACT_PAGE: RouteConstant = {
+  path: "/contact",
+  name: "Contact",
+  auth: false,
+  showNavigation: true,
+};
