@@ -34,3 +34,10 @@ export const CONTACT_PAGE: RouteConstant = {
   auth: false,
   showNavigation: true,
 };
+
+export const SERVICE_PAGE: RouteConstant = {
+  path: "/service",
+  name: "Service",
+  auth: false,
+  showNavigation: true,
+};
