@@ -13,7 +13,7 @@ import styles from "./navigation.module.scss";
 export const Navigation = () => {
   const { width } = useWindowSize();
   const { pathname } = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
