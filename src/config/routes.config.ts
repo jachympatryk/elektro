@@ -1,6 +1,7 @@
 import { LandingPage, LoginPage, PortfolioPage } from "pages";
 import { RouteConfig } from "types";
 import {
+  CAREER_PAGE,
   CONTACT_PAGE,
   LANDING_PAGE,
   LOGIN_PAGE,
@@ -11,6 +12,7 @@ import {
 import { PartnershipPage } from "../pages/partnership/partnership.page";
 import { ContactPage } from "../pages/contact/contact.page";
 import { ServicePage } from "../pages/service/service.page";
+import { CareerPage } from "../pages/career/career.page";
 
 export const routes: RouteConfig[] = [
   { ...LANDING_PAGE, component: LandingPage },
@@ -19,4 +21,5 @@ export const routes: RouteConfig[] = [
   { ...PARTNERSHIP_PAGE, component: PartnershipPage },
   { ...CONTACT_PAGE, component: ContactPage },
   { ...SERVICE_PAGE, component: ServicePage },
+  { ...CAREER_PAGE, component: CareerPage },
 ];

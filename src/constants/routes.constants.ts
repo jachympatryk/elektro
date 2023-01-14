@@ -41,3 +41,10 @@ export const SERVICE_PAGE: RouteConstant = {
   auth: false,
   showNavigation: true,
 };
+
+export const CAREER_PAGE: RouteConstant = {
+  path: "/career",
+  name: "Career",
+  auth: false,
+  showNavigation: true,
+};
