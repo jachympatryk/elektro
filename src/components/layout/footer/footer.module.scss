@@ -1,3 +1,5 @@
+@use 'src/assets/styles/breakpoints';
+
 .container {
   width: 100%;
   border-top: 1px solid #000;
@@ -12,6 +14,15 @@
     font-weight: bold !important;
     font-size: 40px !important;
   }
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 0 20vw;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .content {
@@ -21,11 +32,20 @@
   gap: 32px;
   justify-content: center;
   align-items: center;
+  min-height: 250px;
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    gap: 48px;
+  }
 }
 
 .sitemap {
   font-weight: bold !important;
   font-size: 32px !important;
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    display: none;
+  }
 }
 
 .links {
@@ -34,8 +54,25 @@
   gap: 16px;
   justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    flex-direction: row;
+    gap: 24px;
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 .link {
   color: #000 !important;
+}
+
+.copyright {
+  display: none !important;
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    display: block !important;
+    align-self: flex-end !important;
+    color: #8F8F8F !important;
+  }
 }

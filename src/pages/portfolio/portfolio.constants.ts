@@ -14,7 +14,7 @@ import quality from "assets/images/quality.jpg";
 import quick from "assets/images/quick.jpg";
 import trust from "assets/images/trust.jpg";
 
-export const portfolioData = [
+export const portfolioData1 = [
   {
     image: germany1,
     power: "16 kWp",
@@ -69,6 +69,41 @@ export const portfolioData = [
     label: "Ground installation in Poland",
     power: "10 kWp",
   },
+  {
+    image: quick,
+    label: "Lead time: quick",
+    wide: true,
+  },
+  {
+    image: ac,
+    power: "AC SITE",
+  },
+  {
+    image: ac2,
+    power: "AC SITE",
+  },
+  {
+    image: ac3,
+    power: "AC SITE",
+  },
+];
+
+export const portfolioData2 = [
+  {
+    image: poland1,
+    label: "Implementation on flat roof in Poland",
+  },
+  {
+    image: quality,
+    label: "Exemplary quality",
+    wide: true,
+  },
+
+  {
+    image: trust,
+    label: "Trust and reliability",
+  },
+
   {
     image: quick,
     label: "Lead time: quick",

@@ -5,22 +5,22 @@ export const footerData = [
   },
   {
     label: "Portfolio",
-    url: "/",
+    url: "/portfolio",
   },
   {
     label: "Contact",
-    url: "/",
+    url: "/contact",
   },
   {
     label: "Service",
-    url: "/",
+    url: "/service",
   },
   {
     label: "Career",
-    url: "/",
+    url: "/career",
   },
   {
     label: "Partnership",
-    url: "/",
+    url: "/partnership",
   },
 ];

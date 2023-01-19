@@ -9,7 +9,7 @@ import styles from "./footer.module.scss";
 export const Footer = () => {
   return (
     <div className={styles.container}>
-      <Typography variant="h2">ELEKTOR</Typography>
+      <Typography variant="h2">ELEKTRO</Typography>
 
       <div className={styles.content}>
         <Typography className={styles.sitemap}>Sitemap</Typography>
@@ -21,6 +21,8 @@ export const Footer = () => {
             </Link>
           ))}
         </div>
+
+        <Typography className={styles.copyright}>Copyright 2023-2024 @ ELEKTRO</Typography>
       </div>
     </div>
   );
