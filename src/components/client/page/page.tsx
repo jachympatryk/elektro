@@ -9,7 +9,7 @@ export const Page: React.FC<PageProps> = ({ children }) => {
   return (
     <div className={styles.container}>
       <Navigation />
-      {children}
+      <div className={styles.content}>{children}</div>
       <Footer />
     </div>
   );

@@ -110,7 +110,8 @@
 }
 
 .item {
-  width: 100%;
+  width: 70%;
+  justify-self: center;
   display: flex;
   flex-direction: column;
   gap: 16px;
