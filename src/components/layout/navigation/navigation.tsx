@@ -1,22 +1,29 @@
 import React, { useState } from "react";
 import { Button, IconButton, Typography } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useDidUpdate } from "@better-typed/react-lifecycle-hooks";
 import classNames from "classnames";
 
 import { navigationData } from "./navigation.constants";
 import { useWindowSize } from "hooks";
+import { PARTNERSHIP_PAGE } from "../../../constants/routes.constants";
 
 import styles from "./navigation.module.scss";
 
 export const Navigation = () => {
+  const navigate = useNavigate();
+
   const { width } = useWindowSize();
   const { pathname } = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
+  };
+
+  const openPartnership = () => {
+    navigate(PARTNERSHIP_PAGE.path);
   };
 
   const isMobile = width < 997;
@@ -66,7 +73,9 @@ export const Navigation = () => {
               </Link>
             );
           })}
-          <Button className={styles.button}>Partnership</Button>
+          <Button className={styles.button} onClick={openPartnership}>
+            Partnership
+          </Button>
         </div>
       )}
     </div>

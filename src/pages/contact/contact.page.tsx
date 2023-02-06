@@ -1,20 +1,44 @@
 import React from "react";
 import { Button, Typography } from "@mui/material";
-import { Form, Formik } from "formik";
+import { Form, Formik, FormikHelpers } from "formik";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import classNames from "classnames";
+import { useSubmit } from "@better-typed/react-hyper-fetch";
 
 import { FormTextField } from "../../components/client/form";
 import { contactSchema, initialValues } from "./contact.constants";
+import { ContactData } from "./contact.types";
+import { postContact } from "../../server/contact/contact.server";
+import { createFromData } from "../../firebase/formData.firestore";
+import { FormDataModel } from "../../models/formData.models";
 
 import contactImage from "assets/images/contact.png";
 
 import styles from "./contact.module.scss";
 
 export const ContactPage = () => {
-  const handleSubmit = () => {};
+  const contactData = useSubmit(postContact);
+  const { submit, onSubmitSuccess } = contactData;
+  onSubmitSuccess(() => {});
+
+  const handleSend = async (data: ContactData, formikHelpers: FormikHelpers<ContactData>) => {
+    await submit({ data }).then((res) => {
+      if (res[2] === 200) formikHelpers.resetForm();
+    });
+
+    const firebaseData: FormDataModel = {
+      email: data.email,
+      name: data.name,
+      message: data.message,
+      date: new Date().toISOString(),
+    };
+
+    await createFromData(firebaseData);
+
+    await Promise.all([submit, createFromData]).then(() => {});
+  };
 
   return (
     <div className={styles.container}>
@@ -23,7 +47,7 @@ export const ContactPage = () => {
         initialValues={initialValues}
         validateOnChange={false}
         validateOnBlur={false}
-        onSubmit={handleSubmit}
+        onSubmit={handleSend}
         validationSchema={contactSchema}
       >
         <Form className={styles.form}>
