@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Typography } from "@mui/material";
+import classNames from "classnames";
 
 import { partnershipData } from "./partnership.constants";
 
@@ -14,20 +15,28 @@ export const PartnershipPage = () => {
         <div className={styles.headerCopy}>
           <Typography variant="h4">Partnership in</Typography>
           <Typography variant="h3">
-            <span>4</span> steps
+            <span>4</span> STEPS
           </Typography>
         </div>
       </div>
       <div className={styles.content}>
-        {partnershipData.map(({ content, image, title, button }, index) => (
-          <div className={styles.itemWrapper}>
-            <div className={styles.dot}>{index + 1}</div>
-            <img src={image} alt={title} />
-            <Typography>{title}</Typography>
-            <Typography>{content}</Typography>
-            {button && <Button>{button}</Button>}
-          </div>
-        ))}
+        {partnershipData.map(({ content, image, title, button }, index) => {
+          const isEven = index % 2 === 1;
+
+          return (
+            <div className={classNames(styles.itemWrapper, { [styles.itemWrapperEven]: isEven })}>
+              <div className={styles.dot}>{index + 1}</div>
+              <img src={image} alt={title} />
+              <Typography>{title}</Typography>
+              <Typography>{content}</Typography>
+              {button && (
+                <Button disabled className={isEven ? styles.button : styles.buttonEven}>
+                  {button}
+                </Button>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
