@@ -6,6 +6,7 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import classNames from "classnames";
 import { useSubmit } from "@better-typed/react-hyper-fetch";
+import { useTranslation } from "react-i18next";
 
 import { FormTextField } from "../../components/client/form";
 import { contactSchema, initialValues } from "./contact.constants";
@@ -19,6 +20,8 @@ import contactImage from "assets/images/contact.png";
 import styles from "./contact.module.scss";
 
 export const ContactPage = () => {
+  const { t } = useTranslation();
+
   const contactData = useSubmit(postContact);
   const { submit, onSubmitSuccess } = contactData;
   onSubmitSuccess(() => {});
@@ -48,16 +51,16 @@ export const ContactPage = () => {
         validateOnChange={false}
         validateOnBlur={false}
         onSubmit={handleSend}
-        validationSchema={contactSchema}
+        validationSchema={() => contactSchema(t)}
       >
         <Form className={styles.form}>
-          <Typography>Contact us</Typography>
+          <Typography>{t("contact.contactUs")}</Typography>
 
           <div className={styles.formData}>
-            <FormTextField name="name" label="Name" />
-            <FormTextField name="email" label="Email" />
-            <FormTextField multiline name="message" label="Message" />
-            <Button type="submit">Send</Button>
+            <FormTextField name="name" label={t("contact.name")} />
+            <FormTextField name="email" label={t("contact.email")} />
+            <FormTextField multiline name="message" label={t("contact.message")} />
+            <Button type="submit">{t("contact.send")}</Button>
           </div>
         </Form>
       </Formik>
@@ -65,8 +68,8 @@ export const ContactPage = () => {
       <div className={styles.info}>
         <img src={contactImage} alt="contact page" className={classNames(styles.image, styles.desktop)} />
         <div className={styles.copy}>
-          <Typography>Or contact us now!</Typography>
-          <Typography>Set us a calendar for an online meeting or a phone call.</Typography>
+          <Typography>{t("contact.contactUs")}</Typography>
+          <Typography>{t("contact.setCalendar")}</Typography>
         </div>
 
         <div className={styles.contactWrapper}>

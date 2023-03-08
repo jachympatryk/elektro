@@ -1,21 +1,23 @@
+import { TFunction } from "i18next";
+
 import Fitter from "assets/icons/fitter.svg";
 import Electrician from "assets/icons/electrician.svg";
 import Language from "assets/icons/language.svg";
 
-export const careerData = [
+export const careerData = (t: TFunction) => [
   {
-    label: "fitter",
-    content: "DC SITE of Pv System montage",
+    label: t("career.fitter"),
+    content: t("career.fitterContent"),
     image: Fitter,
   },
   {
-    label: "electrician",
-    content: "AC SITE of Pv System montage + Speicher montage",
+    label: t("career.electrician"),
+    content: t("career.electricianContent"),
     image: Electrician,
   },
   {
-    label: "HELPER WITH LANGUAGE",
-    content: "Communication with clients to fix the assembly details",
+    label: t("career.helperWithLanguage"),
+    content: t("career.helperContent"),
     image: Language,
   },
 ];

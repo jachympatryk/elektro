@@ -1,21 +1,23 @@
+import { TFunction } from "i18next";
+
 import austria from "assets/images/partners-austria.webp";
 import germany from "assets/images/partners-germany.webp";
 import poland from "assets/images/partners-poland.webp";
 
-export const partnersData = [
+export const partnersData = (t: TFunction) => [
   {
     image: austria,
-    name: "Austria",
-    copy: "Upper Austria, Lower Austria, Styria, Burnenland",
+    name: t("landing.partners.austria"),
+    copy: t("landing.partners.austriaCopy"),
   },
   {
     image: germany,
-    name: "Germany",
-    copy: "Branderburg, Sachsen, Sachsen-Anhalt, Mecklenburg-Vorpommern, Bayern",
+    name: t("landing.partners.germany"),
+    copy: t("landing.partners.germanyCopy"),
   },
   {
     image: poland,
-    name: "Poland",
-    copy: "Mostly the south of Poland",
+    name: t("landing.partners.poland"),
+    copy: t("landing.partners.polandCopy"),
   },
 ];

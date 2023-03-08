@@ -4,16 +4,19 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useDidUpdate } from "@better-typed/react-lifecycle-hooks";
 import classNames from "classnames";
+import { useTranslation } from "react-i18next";
 
 import { navigationData } from "./navigation.constants";
 import { useWindowSize } from "hooks";
 import { PARTNERSHIP_PAGE } from "../../../constants/routes.constants";
+import { LanguageSelect } from "../language-select/language-select";
 
 import styles from "./navigation.module.scss";
 
 export const Navigation = () => {
   const navigate = useNavigate();
 
+  const { t } = useTranslation();
   const { width } = useWindowSize();
   const { pathname } = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,7 +54,7 @@ export const Navigation = () => {
       {isMenuOpen && isMobile && (
         <div className={styles.menuMobile}>
           <div className={styles.links}>
-            {navigationData.map(({ path, label }) => {
+            {navigationData(t).map(({ path, label }) => {
               const activePath = path === pathname;
               return (
                 <Link className={classNames(styles.link, { [styles.activeLink]: activePath })} to={path}>
@@ -59,13 +62,17 @@ export const Navigation = () => {
                 </Link>
               );
             })}
-            <Button className={styles.button}>Partnership</Button>
+            <Button className={styles.button} onClick={openPartnership}>
+              Partnership
+            </Button>
+
+            <LanguageSelect />
           </div>
         </div>
       )}
       {!isMobile && (
         <div className={styles.menuDesktop}>
-          {navigationData.map(({ path, label }) => {
+          {navigationData(t).map(({ path, label }) => {
             const activePath = path === pathname;
             return (
               <Link className={classNames(styles.link, { [styles.activeLink]: activePath })} to={path}>
@@ -76,6 +83,8 @@ export const Navigation = () => {
           <Button className={styles.button} onClick={openPartnership}>
             Partnership
           </Button>
+
+          <LanguageSelect />
         </div>
       )}
     </div>

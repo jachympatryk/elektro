@@ -1,19 +1,22 @@
 import React from "react";
 import { Button, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 import { partnersData } from "./partners.constants";
 
 import styles from "./partners.module.scss";
 
 export const Partners = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.container}>
-      <Button className={styles.button}>Let us be your Assembly Partner</Button>
+      <Button className={styles.button}>{t("landing.partners.letUs")}</Button>
 
-      <Typography variant="h2">We implementing projects for our Partners in:</Typography>
+      <Typography variant="h2">{t("landing.partners.implementing")}</Typography>
 
       <div className={styles.content}>
-        {partnersData.map(({ name, image, copy }) => (
+        {partnersData(t).map(({ name, image, copy }) => (
           <div className={styles.partnerItem}>
             <img src={image} alt="country" />
             <Typography variant="h3">{name}</Typography>
@@ -22,7 +25,7 @@ export const Partners = () => {
         ))}
       </div>
 
-      <Button className={styles.summaryButton}>LET US KNOW WHICH LOCATION FIT YOU</Button>
+      <Button className={styles.summaryButton}>{t("landing.partners.letUsKnow")}</Button>
 
       <div className={styles.background} />
     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 import { useWindowSize } from "hooks";
 
@@ -9,6 +10,7 @@ import heroImageDesktop from "assets/images/hero-image-desktop.jpg";
 import styles from "./hero.module.scss";
 
 export const Hero = () => {
+  const { t } = useTranslation();
   const { width } = useWindowSize();
 
   const isDesktop = width > 1024;
@@ -20,24 +22,19 @@ export const Hero = () => {
       <div className={styles.header}>
         {!isDesktop && (
           <Typography variant="h1">
-            We dont sell <br /> installations
+            {t("landing.hero.weDontSell")} <br /> {t("landing.hero.installations")}
           </Typography>
         )}
 
-        {isDesktop && <Typography variant="h1">We dont sell installations</Typography>}
-        <Typography variant="h2">We assembly PV system for our partners</Typography>
+        {isDesktop && <Typography variant="h1">{t("landing.hero.weDontSellInstallations")}</Typography>}
+        <Typography variant="h2">{t("landing.hero.weAssembly")}</Typography>
       </div>
 
       <div className={styles.content}>
         <Typography variant="h3">
-          <span>Experts in the field of assembly</span> <br /> - our business card
+          <span>{t("landing.hero.experts")}</span> <br /> {t("landing.hero.ourBusinessCard")}
         </Typography>
-        <Typography variant="h3">
-          We specialize in subcontracting PV montage services and we guarantee the highest quality of our work. Thanks
-          to many years of experience and commitment of our employees, we are able to implement even the most complex
-          projects. If you are looking for a solid and reliable partner for your customer’s investments, then our
-          company is the perfect choice for you.
-        </Typography>
+        <Typography variant="h3">{t("landing.hero.copy")}</Typography>
       </div>
     </div>
   );

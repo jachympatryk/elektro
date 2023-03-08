@@ -1,22 +1,24 @@
-export const navigationData = [
+import { TFunction } from "i18next";
+
+export const navigationData = (t: TFunction) => [
   {
     path: "/",
-    label: "Home",
+    label: t("navigation.home"),
   },
   {
     path: "/portfolio",
-    label: "Portfolio",
+    label: t("navigation.portfolio"),
   },
   {
     path: "/contact",
-    label: "Contact",
+    label: t("navigation.contact"),
   },
   {
     path: "/service",
-    label: "Service",
+    label: t("navigation.service"),
   },
   {
     path: "/career",
-    label: "Career",
+    label: t("navigation.career"),
   },
 ];

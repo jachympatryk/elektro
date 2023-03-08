@@ -1,26 +1,28 @@
-export const footerData = [
+import { TFunction } from "i18next";
+
+export const footerData = (t: TFunction) => [
   {
-    label: "Home",
+    label: t("footer.home"),
     url: "/",
   },
   {
-    label: "Portfolio",
+    label: t("footer.portfolio"),
     url: "/portfolio",
   },
   {
-    label: "Contact",
+    label: t("footer.contact"),
     url: "/contact",
   },
   {
-    label: "Service",
+    label: t("footer.service"),
     url: "/service",
   },
   {
-    label: "Career",
+    label: t("footer.career"),
     url: "/career",
   },
   {
-    label: "Partnership",
+    label: t("footer.partnership"),
     url: "/partnership",
   },
 ];
