@@ -32,6 +32,32 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+
+  h2, h3 {
+    text-align: left !important;
+  }
+
+  h2 {
+    font-size: 26px !important;
+  }
+
+  h3 {
+    font-size: 16px !important;
+  }
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    width: 80%;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 32px !important;
+    }
+
+    h3 {
+      font-size: 20px !important;
+    }
+  }
 }
 
 .points {
@@ -69,20 +95,71 @@
 .content {
   width: 100%;
   position: relative;
+  padding-top: 25%;
+}
+
+.banner {
+  width: 110vw;
+  height: 30%;
+  background: #000;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: -10%;
+  display: grid;
+}
+
+.bannerWrapper {
+  width: 80%;
+  margin: 0 auto;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%;
+  gap: 32px;
+
+  p {
+    color: #fff !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    font-size: 24px !important;
+  }
+
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    p {
+      font-size: 48px !important;
+    }
+  }
+}
+
+
+.icon {
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100px;
+  height: 100px;
+
+  @media screen and (min-width: breakpoints.$media_l) {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 .wrapper {
   width: 100%;
-  display: flex;
-  flex-direction: column;
   gap: 16px;
   padding: 32px;
   max-width: 1300px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .itemm {
-  width: 300px;
+  width: 100%;
   height: 300px;
   border-radius: 16px;
   border: 2px solid #000;
@@ -102,6 +179,7 @@
   width: 100%;
   height: 100%;
   display: flex;
+  background-color: #fff;
 }
 
 .itemHeaderPower {

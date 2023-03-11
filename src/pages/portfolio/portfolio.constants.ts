@@ -122,3 +122,31 @@ export const portfolioData2 = [
     power: "AC SITE",
   },
 ];
+
+export const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 4000 },
+    items: 4,
+    slidesToSlide: 4,
+  },
+  desktop: {
+    breakpoint: { max: 4000, min: 1600 },
+    items: 4,
+    slidesToSlide: 4,
+  },
+  semiTablet: {
+    breakpoint: { max: 1600, min: 1200 },
+    items: 3,
+    slidesToSlide: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1200, min: 773 },
+    items: 2,
+    slidesToSlide: 2,
+  },
+  mobile: {
+    breakpoint: { max: 773, min: 0 },
+    items: 1,
+    slidesToSlide: 1,
+  },
+};
